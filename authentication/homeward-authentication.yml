@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/homeward-offer-estimate-openapi.yml
+docs: https://api-docs.homeward.com/
+notes: >-
+  Homeward uses token authentication. Partners email api@homeward.com to obtain
+  testing and production tokens, supplied in the Authentication request header
+  for all authenticated endpoints. The /buybox/ endpoint is documented as
+  requiring no credential.
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: Authentication
+  description: Token authentication. Provide the testing or production token issued by Homeward
+    in the Authentication header. Contact api@homeward.com to obtain tokens.
+  sources:
+  - openapi/homeward-offer-estimate-openapi.yml
