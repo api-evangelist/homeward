@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Homeward Offer Estimate Buybox API
+  version: 1.0.0
+  description: 'The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward''s "buybox," update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.'
+  contact:
+    name: Homeward API
+    email: api@homeward.com
+    url: https://api-docs.homeward.com/
+  x-apisjson-source: postman/homeward-offer-estimate-postman.json
+  x-generated: '2026-07-19'
+  x-method: derived
+servers:
+- url: https://api.homeward.com
+  description: Production API host (BASE_URL)
+tags:
+- name: Buybox
+  description: Property eligibility checks
+paths:
+  /buybox/:
+    post:
+      operationId: checkBuyboxEligibility
+      tags:
+      - Buybox
+      summary: Buybox eligibility check
+      description: Quick check of whether a property is likely within Homeward's buybox. Not a definitive determination. Per the docs this endpoint is separate from the rest of the API, requires no credential, and uses a different base URL / path format. Only state is required; more values improve accuracy.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuyboxRequest'
+      responses:
+        '200':
+          description: Eligibility result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuyboxResult'
+        '422':
+          description: Unprocessable request (validation failed)
+components:
+  schemas:
+    BuyboxResult:
+      type: object
+      required:
+      - is_eligible
+      properties:
+        is_eligible:
+          type: boolean
+        reason_for_denial:
+          type:
+          - string
+          - 'null'
+          description: 'One of: Property lot size is outside of buybox; Year built is outside of buybox; Listing status is outside of buybox; Estimated sale price outside of buybox; Property type is outside of buybox; Property address outside of buybox'
+    BuyboxRequest:
+      type: object
+      required:
+      - property_address
+      properties:
+        property_address:
+          type: object
+          required:
+          - state
+          properties:
+            street_one:
+              type: string
+            street_two:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+              description: Standard 2-letter state abbreviation
+            postal_code:
+              type: string
+        opinion_of_value:
+          type: integer
+        lot_size_acres:
+          type: integer
+        property_type:
+          type: string
+          enum:
+          - Single Family
+          - Unknown
+          - Multi-Family
+          - Luxury
+          - Condo
+          - Lot
+          - Other
+          - Commercial
+          - Mobile Home
+          - Townhouse
+          - Timeshare
+        listing_status:
+          type: string
+          enum:
+          - Listed
+          - Not Listed
+          - Unknown
+        year_built:
+          type:
+          - integer
+          - string
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authentication
+      description: Token authentication. Provide the testing or production token issued by Homeward in the Authentication header. Contact api@homeward.com to obtain tokens.

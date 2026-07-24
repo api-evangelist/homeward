@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: Homeward Offer Estimate Buybox Finalization API
+  version: 1.0.0
+  description: 'The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward''s "buybox," update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.'
+  contact:
+    name: Homeward API
+    email: api@homeward.com
+    url: https://api-docs.homeward.com/
+  x-apisjson-source: postman/homeward-offer-estimate-postman.json
+  x-generated: '2026-07-19'
+  x-method: derived
+servers:
+- url: https://api.homeward.com
+  description: Production API host (BASE_URL)
+tags:
+- name: Finalization
+  description: Finalize a lead in the Homeward application
+paths:
+  /agents/finalize-lead/{lead_id}/:
+    post:
+      operationId: finalizeOfferRequest
+      tags:
+      - Finalization
+      summary: Finalize an offer request
+      description: Finalize a Homeward Offer Estimate via the link returned by createOfferRequest. Redirects the user into the Homeward application, which may require additional information. Served from the Homeward front-end host (FE_URL), not the API host.
+      servers:
+      - url: https://app.homeward.com
+        description: Homeward front-end host (FE_URL)
+      parameters:
+      - name: lead_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '302':
+          description: Redirect to the Homeward application
+components:
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authentication
+      description: Token authentication. Provide the testing or production token issued by Homeward in the Authentication header. Contact api@homeward.com to obtain tokens.
