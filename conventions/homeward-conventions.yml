@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.homeward.com/
+notes: >-
+  Cross-cutting request/response semantics for the Homeward Offer Estimate API,
+  captured from the published docs and derived from the OpenAPI. Cross-links
+  authentication/, errors/, and lifecycle/.
+authentication:
+  style: static-token-header
+  header: Authentication
+  ref: authentication/homeward-authentication.yml
+content_types:
+  request: application/json
+  response: application/json
+  accept: application/json
+idempotency:
+  documented: false
+  client_reference_key: partner_offer_request_id
+  notes: >-
+    Each offer request carries a partner-configured unique id
+    (partner_offer_request_id) and customer_email must be unique. These act as
+    client-side de-duplication references, but Homeward does not document a
+    formal idempotency-key contract or safe-retry replay semantics, so no
+    Idempotency guarantee is claimed.
+pagination:
+  supported: false
+  notes: Endpoints return single resources or eligibility results; no collection listing.
+versioning:
+  style: uri-path
+  ref: lifecycle/homeward-lifecycle.yml
+error_envelope:
+  shape: '{ "status": <int>, "data": <string> }'
+  ref: errors/homeward-problem-types.yml
+rate_limit_signaling:
+  documented: false
+request_tracing:
+  documented: false
+separation_of_concerns:
+  notes: >-
+    The /buybox/ eligibility endpoint is documented as separate from the rest of
+    the API — no credential required, different base URL / path format.

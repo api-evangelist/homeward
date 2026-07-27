@@ -1,22 +1,86 @@
 aid: homeward
 name: Homeward
-description: 'Homeward is a company surfaced as a portfolio company of norwest-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Homeward is a modern home-finance company founded in 2018 and headquartered in
+  Austin, Texas, that partners with real estate agents to turn any homebuyer into
+  a cash buyer. Its cash-offer products let buyers make competitive, contingency-free
+  offers and buy a new home before selling their current one, bundled with
+  affiliates Homeward Mortgage and Homeward Title. For its cash-offer digital
+  partners, Homeward exposes the Offer Estimate API: partners submit seller leads
+  (property, customer, and agent details) and receive a Homeward Offer Estimate —
+  an offer amount, an opinion-of-value range, an Offer Estimate PDF, and a
+  finalization link — plus a public buybox eligibility check. Homeward is backed by
+  Norwest Venture Partners, Blackstone, Breyer Capital, Live Oak Venture Partners,
+  Javelin Venture Partners, Adams Street, and others.
 url: https://raw.githubusercontent.com/api-evangelist/homeward/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - norwest-venture-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-api
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://www.homeward.com/favicon.ico
 tags:
 - Company
-- Unknown
-apis: []
+- Real Estate
+- Home Finance
+- Mortgage
+- Proptech
+- Cash Offer
+- Title
+- Lending
+apis:
+- aid: homeward:homeward-buybox-api
+  name: Homeward Buybox API
+  description: Property eligibility checks
+  humanURL: https://api-docs.homeward.com/
+  baseURL: https://api.homeward.com
+  tags:
+  - Buybox
+  properties:
+  - type: OpenAPI
+    url: openapi/homeward-buybox-api-openapi.yml
+  - type: Postman
+    url: https://api-docs.homeward.com/
+- aid: homeward:homeward-finalization-api
+  name: Homeward Finalization API
+  description: Finalize a lead in the Homeward application
+  humanURL: https://api-docs.homeward.com/
+  baseURL: https://api.homeward.com
+  tags:
+  - Finalization
+  properties:
+  - type: OpenAPI
+    url: openapi/homeward-finalization-api-openapi.yml
+  - type: Postman
+    url: https://api-docs.homeward.com/
+- aid: homeward:homeward-offer-requests-api
+  name: Homeward Offer Requests API
+  description: Create, read, and update partner offer requests
+  humanURL: https://api-docs.homeward.com/
+  baseURL: https://api.homeward.com
+  tags:
+  - Offer Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/homeward-offer-requests-api-openapi.yml
+  - type: Postman
+    url: https://api-docs.homeward.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,4 +88,52 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://homeward.com
+  url: https://www.homeward.com
+- type: DeveloperPortal
+  url: https://api-docs.homeward.com/
+- type: Documentation
+  url: https://api-docs.homeward.com/
+- type: APIReference
+  url: https://api-docs.homeward.com/
+- type: Blog
+  url: https://www.homeward.com/blog
+- type: Support
+  url: https://www.homeward.com/help-centers
+- type: TermsOfService
+  url: https://www.homeward.com/legalese/terms-conditions-of-use
+- type: PrivacyPolicy
+  url: https://www.homeward.com/legalese/privacy-policy
+- type: Postman
+  url: https://api-docs.homeward.com/
+- type: Authentication
+  url: authentication/homeward-authentication.yml
+- type: DomainSecurity
+  url: security/homeward-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/homeward-agentic-access.yml
+- type: WellKnown
+  url: well-known/homeward-well-known.yml
+- type: MCPServer
+  url: mcp/homeward-mcp.yml
+- type: LLMsTxt
+  url: llms/homeward-llms.txt
+- type: Conformance
+  url: conformance/homeward-conformance.yml
+- type: ErrorCatalog
+  url: errors/homeward-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/homeward-lifecycle.yml
+- type: Conventions
+  url: conventions/homeward-conventions.yml
+- type: DataModel
+  url: data-model/homeward-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Homeward cash offer — buybox to finalized estimate
+  url: arazzo/homeward-cash-offer.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

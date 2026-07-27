@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/homeward-offer-estimate-openapi.yml
+skills:
+  - file: homeward-request-cash-offer.md
+    name: Request a Homeward cash offer for a seller lead
+    api: openapi/homeward-offer-estimate-openapi.yml
+    operations: [checkBuyboxEligibility, createOfferRequest, getOfferEstimate, finalizeOfferRequest]
+  - file: homeward-check-buybox.md
+    name: Check whether a property is in Homeward's buybox
+    api: openapi/homeward-offer-estimate-openapi.yml
+    operations: [checkBuyboxEligibility]

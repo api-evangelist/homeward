@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Homeward Offer Estimate
+  version: 1.0.0
+extends: openapi/homeward-offer-estimate-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-19'
+      x-apievangelist-source: postman/homeward-offer-estimate-postman.json
+      x-apievangelist-audience: cash-offer-digital-partners
+  - target: $.info
+    update:
+      x-apievangelist-notes: >-
+        Partner-only API. Access by invitation via api@homeward.com. The
+        /buybox/ endpoint is public (no credential). Errors use a custom
+        {status, data} envelope rather than RFC 9457.
+  - target: $.paths['/buybox/'].post
+    update:
+      x-apievangelist-public: true
+  - target: $.components.securitySchemes.tokenAuth
+    update:
+      x-apievangelist-onboarding: Email api@homeward.com for testing and production tokens.

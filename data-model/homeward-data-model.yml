@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/homeward-offer-estimate-openapi.yml
+notes: >-
+  Entity-relationship graph derived from the Offer Estimate OpenAPI schemas and
+  id-reference fields. Identifiers: homeward_offer_id and preliminary_offer_id
+  are UUIDs; partner_offer_request_id is a partner-supplied string; lead_id is
+  the finalization identifier.
+entities:
+  - name: OfferRequest
+    description: A partner-submitted seller lead requesting a Homeward Offer Estimate.
+    ids: [partner_offer_request_id, homeward_offer_id]
+    relationships:
+      - { type: has_one, target: Agent, via: agent }
+      - { type: has_one, target: OfferEstimate, via: homeward_offer_id }
+      - { type: has_one, target: Address, via: street_one }
+  - name: OfferEstimate
+    description: The offer response — amount, value range, PDF and finalization links.
+    ids: [homeward_offer_id, preliminary_offer_id]
+    relationships:
+      - { type: belongs_to, target: OfferRequest, via: partner_offer_request_id }
+      - { type: has_one, target: OfferBreakdown, via: preliminary_offer_id }
+  - name: OfferBreakdown
+    description: Full offer economics for a preliminary offer (milestones, fees, net proceeds).
+    ids: [id, lead_id]
+    relationships:
+      - { type: belongs_to, target: OfferEstimate, via: preliminary_offer_id }
+      - { type: has_one, target: EstimateAddress, via: address }
+  - name: Agent
+    description: The real estate agent attached to an offer request.
+    relationships:
+      - { type: belongs_to, target: OfferRequest, via: offer_request_id }
+  - name: BuyboxResult
+    description: Stateless eligibility outcome for a property (is_eligible + reason_for_denial).
+    relationships: []

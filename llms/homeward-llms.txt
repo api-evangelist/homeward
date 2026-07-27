@@ -1,0 +1,28 @@
+# Homeward
+
+> Homeward is a modern home-finance company (Austin, TX, founded 2018) that helps real estate agents turn any buyer into a cash buyer. Its Offer Estimate API lets Homeward cash-offer digital partners submit seller leads and receive a Homeward Offer Estimate — an offer amount, opinion-of-value range, offer PDF, and finalization link. The API is partner-gated (token authentication); contact api@homeward.com for access.
+
+## APIs
+- [Homeward Offer Estimate API docs](https://api-docs.homeward.com/): Partner API for seller leads and cash-offer estimates.
+
+## Specs
+- [OpenAPI 3.1 (derived)](https://raw.githubusercontent.com/api-evangelist/homeward/refs/heads/main/openapi/homeward-offer-estimate-openapi.yml)
+- [Postman collection (source)](https://raw.githubusercontent.com/api-evangelist/homeward/refs/heads/main/postman/homeward-offer-estimate-postman.json)
+
+## Operations
+- createOfferRequest — POST /api/1.0.0/partner/offer-request/ — submit a seller lead, receive an offer estimate.
+- getOfferEstimate — GET /api/1.0.0/estimate/sell/{preliminary_offer_id}/ — full offer breakdown.
+- updateOfferRequestAgent — PATCH /api/1.0.0/partner/offer-request/{offer_request_id}/agent/ — replace agent details.
+- checkBuyboxEligibility — POST /buybox/ — quick property eligibility check (no credential).
+- finalizeOfferRequest — POST /agents/finalize-lead/{lead_id}/ — redirect into the Homeward app.
+
+## Docs
+- [Developer docs](https://api-docs.homeward.com/)
+- [How it works](https://www.homeward.com/how-it-works)
+- [Help Center](https://www.homeward.com/help-centers)
+- [Blog](https://www.homeward.com/blog)
+- [Terms & Conditions](https://www.homeward.com/legalese/terms-conditions-of-use)
+- [Privacy Policy](https://www.homeward.com/legalese/privacy-policy)
+
+## Contact
+- API support: api@homeward.com

@@ -1,0 +1,18 @@
+{
+  "provider": "homeward",
+  "sources": [
+    "homeward-buybox-api-openapi.yml",
+    "homeward-finalization-api-openapi.yml",
+    "homeward-offer-requests-api-openapi.yml"
+  ],
+  "outputs": [
+    "homeward-buybox-api-openapi.yml",
+    "homeward-finalization-api-openapi.yml",
+    "homeward-offer-requests-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.homeward.com/
+notes: >-
+  Versioning is expressed in the URI path (api/1.0.0/...). No public deprecation
+  policy, Sunset/Deprecation header support, SLA, or status page was found on
+  the developer surface. Access is partner-gated; changes are coordinated
+  directly with partners via api@homeward.com.
+versioning:
+  scheme: uri-path
+  current: '1.0.0'
+  docs: https://api-docs.homeward.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/homeward-offer-estimate-openapi.yml
+notes: >-
+  Standards conformance derived from the Offer Estimate OpenAPI and docs. This
+  is a partner-only JSON/REST API secured with a static header token; it does
+  not implement OAuth2/OIDC, and no formal compliance certifications are
+  published on the developer surface.
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: spec authored as OpenAPI 3.1.0 (derived from published Postman collection)
+  - id: rest-json
+    conforms: true
+    evidence: JSON request/response over HTTPS, resource-oriented paths
+  - id: api-key-header-auth
+    conforms: true
+    evidence: apiKey security scheme in header (Authentication)
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 security schemes; static token authentication only
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors returned as a custom {status, data} JSON envelope, not application/problem+json
+  - id: webhooks
+    conforms: false
+    evidence: request/response only; no event or webhook surface documented

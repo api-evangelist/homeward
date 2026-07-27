@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/homeward-offer-estimate-openapi.yml
+format: custom-envelope
+envelope:
+  shape: '{ "status": <int>, "data": <string> }'
+  notes: >-
+    Homeward returns errors as a simple JSON envelope with an integer status and
+    a human-readable data string (not RFC 9457 problem+json). Documented status
+    families: 2xx OK, 4xx invalid request, 5xx server-side error. Two additional
+    outcome fields carry domain-level denials rather than HTTP errors:
+    reason_for_denial on offer/estimate responses, and reason_for_denial on
+    buybox eligibility results.
+problems:
+  - status: 400
+    title: Homeward request is invalid
+    example: 'Provided address is in an unsupported market'
+    source_operation: openapi/homeward-offer-estimate-openapi.yml#createOfferRequest
+  - status: 401
+    title: Missing or invalid authentication token
+    remediation: Supply a valid Homeward token in the Authentication header.
+    source_operation: openapi/homeward-offer-estimate-openapi.yml#createOfferRequest
+  - status: 422
+    title: Unprocessable buybox request
+    remediation: Ensure the required state field is present and valid.
+    source_operation: openapi/homeward-offer-estimate-openapi.yml#checkBuyboxEligibility
+  - status: 5xx
+    title: Server error
+    remediation: The request may have been valid; retry later or contact api@homeward.com.
+domain_denials:
+  field: reason_for_denial
+  masked_to_buyer: false
+  offer_estimate_reasons:
+    - "Property type '<type>' is outside of buybox."
+    - Provided address is in an unsupported market
+  buybox_reasons:
+    - Property lot size is outside of buybox
+    - Year built is outside of buybox
+    - Listing status is outside of buybox
+    - Estimated sale price outside of buybox
+    - Property type is outside of buybox
+    - Property address outside of buybox

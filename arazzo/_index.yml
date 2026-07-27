@@ -1,0 +1,7 @@
+generated: '2026-07-19'
+method: derived
+workflows:
+  - file: homeward-cash-offer.yml
+    workflowId: requestCashOffer
+    title: Homeward cash offer — buybox to finalized estimate
+    summary: Check buybox eligibility, create an offer request, then retrieve the offer breakdown.

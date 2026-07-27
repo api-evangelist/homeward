@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: probed
+source: live probes of /.well-known/* on API + site hosts
+notes: >-
+  No .well-known discovery documents are published. api.homeward.com and
+  www.homeward.com return 404 for all probed paths. app.homeward.com returns
+  200 for every path but serves the SPA index.html (Content-Type text/html),
+  not real discovery documents, so those are recorded as not-found.
+hosts:
+  - host: https://api.homeward.com
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/openid-configuration, status: 404 }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 404 }
+      - { path: /.well-known/ai-plugin.json, status: 404 }
+  - host: https://www.homeward.com
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/openid-configuration, status: 404 }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 404 }
+      - { path: /.well-known/ai-plugin.json, status: 404 }
+  - host: https://app.homeward.com
+    documents:
+      - { path: /.well-known/security.txt, status: 200, ignored: spa-index-html }
+      - { path: /.well-known/openid-configuration, status: 200, ignored: spa-index-html }
