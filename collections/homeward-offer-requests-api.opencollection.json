@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Homeward Offer Estimate Buybox Offer Requests API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offer Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an offer request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.homeward.com/api/1.0.0/partner/offer-request/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authentication",
+              "value": "{{Authentication}}",
+              "placement": "header"
+            }
+          },
+          "docs": "An Offer Request is a request from a partner to receive a Homeward Offer Estimate. Posted from partner to Homeward. On success Homeward returns the offer estimate details; if the property is denied, reason_for_denial is populated and the offer fields are null."
+        },
+        {
+          "info": {
+            "name": "Offer Estimate Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.homeward.com/api/1.0.0/estimate/sell/:preliminary_offer_id/",
+            "params": [
+              {
+                "name": "preliminary_offer_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authentication",
+              "value": "{{Authentication}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the full offer breakdown for a preliminary offer so partners can display and explain the Homeward Offer (opinion of value, milestones, net proceeds, fees, program details)."
+        },
+        {
+          "info": {
+            "name": "Update offer request agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.homeward.com/api/1.0.0/partner/offer-request/:offer_request_id/agent/",
+            "params": [
+              {
+                "name": "offer_request_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authentication",
+              "value": "{{Authentication}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update the real estate agent details for a partner offer request. The offer_request_id may be the partner_offer_request_id supplied at creation or the homeward_offer_id returned at creation. All fields are optional but the entire agent resource is replaced with what is provided."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,27 +2,31 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/homeward-offer-estimate-openapi.yml
-notes: >-
-  No official hosted or remote Homeward MCP server was found (no registry entry,
-  no @modelcontextprotocol package, no docs reference). This is a CANDIDATE tool
-  list derived one-per-operation from the Offer Estimate OpenAPI, for a future
-  MCP wrapper.
+notes: No official hosted or remote Homeward MCP server was found (no registry entry, no @modelcontextprotocol
+  package, no docs reference). This is a CANDIDATE tool list derived one-per-operation from the Offer
+  Estimate OpenAPI, for a future MCP wrapper.
 server:
   name: homeward-offer-estimate
   transport: http
 tools:
-  - name: create_offer_request
-    description: Submit a seller lead and receive a Homeward Offer Estimate.
-    source_operation: openapi/homeward-offer-estimate-openapi.yml#createOfferRequest
-  - name: get_offer_estimate
-    description: Retrieve the full offer breakdown for a preliminary offer.
-    source_operation: openapi/homeward-offer-estimate-openapi.yml#getOfferEstimate
-  - name: update_offer_request_agent
-    description: Replace the agent details on an existing offer request.
-    source_operation: openapi/homeward-offer-estimate-openapi.yml#updateOfferRequestAgent
-  - name: check_buybox_eligibility
-    description: Quick check whether a property is within Homeward's buybox.
-    source_operation: openapi/homeward-offer-estimate-openapi.yml#checkBuyboxEligibility
-  - name: finalize_offer_request
-    description: Finalize a lead by redirecting into the Homeward application.
-    source_operation: openapi/homeward-offer-estimate-openapi.yml#finalizeOfferRequest
+- name: create_offer_request
+  description: Submit a seller lead and receive a Homeward Offer Estimate.
+  source_operation: openapi/homeward-offer-estimate-openapi.yml#createOfferRequest
+- name: get_offer_estimate
+  description: Retrieve the full offer breakdown for a preliminary offer.
+  source_operation: openapi/homeward-offer-estimate-openapi.yml#getOfferEstimate
+- name: update_offer_request_agent
+  description: Replace the agent details on an existing offer request.
+  source_operation: openapi/homeward-offer-estimate-openapi.yml#updateOfferRequestAgent
+- name: check_buybox_eligibility
+  description: Quick check whether a property is within Homeward's buybox.
+  source_operation: openapi/homeward-offer-estimate-openapi.yml#checkBuyboxEligibility
+- name: finalize_offer_request
+  description: Finalize a lead by redirecting into the Homeward application.
+  source_operation: openapi/homeward-offer-estimate-openapi.yml#finalizeOfferRequest
+deployment:
+  mode: none
+  verified: derived
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census

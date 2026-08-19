@@ -1,0 +1,118 @@
+{
+  "item": [
+    {
+      "id": "2856817b-f3cd-4ab1-9446-d4229c6dd841",
+      "name": "Finalization",
+      "description": {
+        "content": "Finalize a lead in the Homeward application",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a41c8a24-cfc2-40da-811f-89d01fb0d4e2",
+          "name": "Finalize an offer request",
+          "request": {
+            "name": "Finalize an offer request",
+            "description": {
+              "content": "Finalize a Homeward Offer Estimate via the link returned by createOfferRequest. Redirects the user into the Homeward application, which may require additional information. Served from the Homeward front-end host (FE_URL), not the API host.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "agents",
+                "finalize-lead",
+                ":lead_id",
+                ""
+              ],
+              "host": [
+                "app",
+                "homeward",
+                "com"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lead_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7db8b7a4-d990-4f73-aecd-871da112edbf",
+              "name": "Redirect to the Homeward application",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "agents",
+                    "finalize-lead",
+                    ":lead_id",
+                    ""
+                  ],
+                  "host": [
+                    "app",
+                    "homeward",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lead_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.homeward.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fc8c3a6d-d888-44dd-bd9f-d28800a586d8",
+    "name": "Homeward Offer Estimate Buybox Finalization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward's \"buybox,\" update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.\n\nContact Support:\n Name: Homeward API\n Email: api@homeward.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,714 @@
+{
+  "item": [
+    {
+      "id": "e8a7884f-0253-4d87-89f2-438a3f93b427",
+      "name": "Offer Requests",
+      "description": {
+        "content": "Create, read, and update partner offer requests",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6265a5ec-b32c-4145-abbc-9b5ff165b022",
+          "name": "Create an offer request",
+          "request": {
+            "name": "Create an offer request",
+            "description": {
+              "content": "An Offer Request is a request from a partner to receive a Homeward Offer Estimate. Posted from partner to Homeward. On success Homeward returns the offer estimate details; if the property is denied, reason_for_denial is populated and the offer fields are null.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1.0.0",
+                "partner",
+                "offer-request",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authentication"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partner_offer_request_id\": \"<string>\",\n  \"street_one\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"customer_first_name\": \"<string>\",\n  \"customer_last_name\": \"<string>\",\n  \"customer_email\": \"<email>\",\n  \"street_two\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"agent_first_name\": \"<string>\",\n  \"agent_last_name\": \"<string>\",\n  \"agent_email\": \"<email>\",\n  \"agent_phone\": \"<string>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<string>\",\n  \"home_size_sq_ft\": \"<integer>\",\n  \"outstanding_loan_amount\": \"<integer>\",\n  \"agent_opinion_of_value\": \"<integer>\",\n  \"home_listing_status\": \"<string>\",\n  \"home_stories\": \"<integer>\",\n  \"master_on_main\": \"<boolean>\",\n  \"additions_made\": \"<boolean>\",\n  \"addition_sqft\": \"<integer>\",\n  \"has_basement\": \"<boolean>\",\n  \"basement_sqft\": \"<integer>\",\n  \"kitchen_countertop_type\": \"<string>\",\n  \"garage_spaces_count\": \"<integer>\",\n  \"hvac_age\": \"<integer>\",\n  \"repair_or_update_detail\": \"<string>\",\n  \"photos\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"property_type\": \"<string>\",\n  \"has_solar_panels\": \"<boolean>\",\n  \"year_built\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d6d848b-bbe7-4539-ae10-a6cf5e26ae9e",
+              "name": "Offer request created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partner_offer_request_id\": \"<string>\",\n  \"street_one\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"customer_first_name\": \"<string>\",\n  \"customer_last_name\": \"<string>\",\n  \"customer_email\": \"<email>\",\n  \"street_two\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"agent_first_name\": \"<string>\",\n  \"agent_last_name\": \"<string>\",\n  \"agent_email\": \"<email>\",\n  \"agent_phone\": \"<string>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<string>\",\n  \"home_size_sq_ft\": \"<integer>\",\n  \"outstanding_loan_amount\": \"<integer>\",\n  \"agent_opinion_of_value\": \"<integer>\",\n  \"home_listing_status\": \"<string>\",\n  \"home_stories\": \"<integer>\",\n  \"master_on_main\": \"<boolean>\",\n  \"additions_made\": \"<boolean>\",\n  \"addition_sqft\": \"<integer>\",\n  \"has_basement\": \"<boolean>\",\n  \"basement_sqft\": \"<integer>\",\n  \"kitchen_countertop_type\": \"<string>\",\n  \"garage_spaces_count\": \"<integer>\",\n  \"hvac_age\": \"<integer>\",\n  \"repair_or_update_detail\": \"<string>\",\n  \"photos\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"property_type\": \"<string>\",\n  \"has_solar_panels\": \"<boolean>\",\n  \"year_built\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"partner_offer_request_id\": \"string\",\n  \"homeward_offer_id\": \"82848a18-25e7-69e6-a785-c51a75833f59\",\n  \"offer_amount\": 548,\n  \"opinion_of_value_min\": 912,\n  \"opinion_of_value_max\": 6254,\n  \"expiration_date\": \"1985-08-08\",\n  \"preliminary_offer_pdf\": \"https://EwxVmeCNukup.dlekXM8Xl30SheWcFRCZuiYENmIo\",\n  \"offer_finalization_link\": \"http://FfgTDhogTMNdokXurEbkKgDRCw.eyALmAVwKwkNuwTaUrNfLwXpVTVL4MnixUwceOWZ4-BeDTc.bIH\",\n  \"reason_for_denial\": \"string\",\n  \"preliminary_offer_id\": \"ccbed505-30c0-e69c-9890-075781983667\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3babdecb-0766-49a2-961d-15bfd670f342",
+              "name": "Homeward request is invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partner_offer_request_id\": \"<string>\",\n  \"street_one\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"customer_first_name\": \"<string>\",\n  \"customer_last_name\": \"<string>\",\n  \"customer_email\": \"<email>\",\n  \"street_two\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"agent_first_name\": \"<string>\",\n  \"agent_last_name\": \"<string>\",\n  \"agent_email\": \"<email>\",\n  \"agent_phone\": \"<string>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<string>\",\n  \"home_size_sq_ft\": \"<integer>\",\n  \"outstanding_loan_amount\": \"<integer>\",\n  \"agent_opinion_of_value\": \"<integer>\",\n  \"home_listing_status\": \"<string>\",\n  \"home_stories\": \"<integer>\",\n  \"master_on_main\": \"<boolean>\",\n  \"additions_made\": \"<boolean>\",\n  \"addition_sqft\": \"<integer>\",\n  \"has_basement\": \"<boolean>\",\n  \"basement_sqft\": \"<integer>\",\n  \"kitchen_countertop_type\": \"<string>\",\n  \"garage_spaces_count\": \"<integer>\",\n  \"hvac_age\": \"<integer>\",\n  \"repair_or_update_detail\": \"<string>\",\n  \"photos\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"property_type\": \"<string>\",\n  \"has_solar_panels\": \"<boolean>\",\n  \"year_built\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 5527,\n  \"data\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8535c29b-19cb-4ab2-92c0-b0107ecfe36a",
+              "name": "Missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partner_offer_request_id\": \"<string>\",\n  \"street_one\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"postal_code\": \"<string>\",\n  \"customer_first_name\": \"<string>\",\n  \"customer_last_name\": \"<string>\",\n  \"customer_email\": \"<email>\",\n  \"street_two\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"agent_first_name\": \"<string>\",\n  \"agent_last_name\": \"<string>\",\n  \"agent_email\": \"<email>\",\n  \"agent_phone\": \"<string>\",\n  \"bedrooms\": \"<integer>\",\n  \"bathrooms\": \"<string>\",\n  \"home_size_sq_ft\": \"<integer>\",\n  \"outstanding_loan_amount\": \"<integer>\",\n  \"agent_opinion_of_value\": \"<integer>\",\n  \"home_listing_status\": \"<string>\",\n  \"home_stories\": \"<integer>\",\n  \"master_on_main\": \"<boolean>\",\n  \"additions_made\": \"<boolean>\",\n  \"addition_sqft\": \"<integer>\",\n  \"has_basement\": \"<boolean>\",\n  \"basement_sqft\": \"<integer>\",\n  \"kitchen_countertop_type\": \"<string>\",\n  \"garage_spaces_count\": \"<integer>\",\n  \"hvac_age\": \"<integer>\",\n  \"repair_or_update_detail\": \"<string>\",\n  \"photos\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"property_type\": \"<string>\",\n  \"has_solar_panels\": \"<boolean>\",\n  \"year_built\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25fa7a8f-23ea-4e25-a1c5-88c86db78827",
+          "name": "Offer Estimate Information",
+          "request": {
+            "name": "Offer Estimate Information",
+            "description": {
+              "content": "Returns the full offer breakdown for a preliminary offer so partners can display and explain the Homeward Offer (opinion of value, milestones, net proceeds, fees, program details).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1.0.0",
+                "estimate",
+                "sell",
+                ":preliminary_offer_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "preliminary_offer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authentication"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "135e5cbd-476b-4efa-a279-4fc21ddbff53",
+              "name": "Preliminary Offer Information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "estimate",
+                    "sell",
+                    ":preliminary_offer_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "preliminary_offer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"opinion_of_value\": 2113,\n  \"opinion_of_value_min\": 9581,\n  \"opinion_of_value_max\": 1804,\n  \"address\": {\n    \"street\": \"string\",\n    \"unit\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\"\n  },\n  \"milestone_one\": 7667,\n  \"milestone_two\": 1777,\n  \"milestone_three\": 8597,\n  \"milestone_four\": 7527,\n  \"milestone_five\": 7382,\n  \"net_offer_price\": 8046,\n  \"net_offer_price_min\": 2119,\n  \"net_offer_price_max\": 8951,\n  \"homeward_partial_program_fee\": 38,\n  \"homeward_program_fee_adjustment\": 6961,\n  \"incremental_sale_proceeds\": 3173,\n  \"listing_cost_adjustment\": 8477,\n  \"listing_cost_credit\": 5698,\n  \"net_proceeds_from_homeward_purchase\": 5252,\n  \"net_proceeds_from_homeward_sale\": 2475,\n  \"offer_price_percentage\": 9189,\n  \"program_fee\": 8728.849115607854,\n  \"program_fee_base\": 8744,\n  \"sale_price_estimate\": 2616,\n  \"seller_expenses\": 7676,\n  \"seller_upside_percentage\": 8002,\n  \"standard_closing_costs\": 1809,\n  \"total_program_proceeds\": 6876,\n  \"total_program_proceeds_min\": 5753,\n  \"total_program_proceeds_max\": 3045,\n  \"total_commission_percentage\": \"string\",\n  \"id\": \"string\",\n  \"lead_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa36dade-fdf7-4665-b34d-358ec13f1e04",
+              "name": "Missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "estimate",
+                    "sell",
+                    ":preliminary_offer_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "preliminary_offer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "365f584f-ad13-4196-907a-b8b78a8e40a4",
+          "name": "Update offer request agent",
+          "request": {
+            "name": "Update offer request agent",
+            "description": {
+              "content": "Update the real estate agent details for a partner offer request. The offer_request_id may be the partner_offer_request_id supplied at creation or the homeward_offer_id returned at creation. All fields are optional but the entire agent resource is replaced with what is provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1.0.0",
+                "partner",
+                "offer-request",
+                ":offer_request_id",
+                "agent",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "offer_request_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authentication"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ec9627e1-a407-4de8-87f5-60ffe4138656",
+              "name": "Offer request agent updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ":offer_request_id",
+                    "agent",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offer_request_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"partner_offer_request_id\": \"string\",\n  \"homeward_offer_id\": \"0a569c89-bb45-768c-3c47-087fb547574d\",\n  \"offer_amount\": 9188,\n  \"opinion_of_value_min\": 1947,\n  \"opinion_of_value_max\": 8034,\n  \"expiration_date\": \"2006-03-14\",\n  \"preliminary_offer_pdf\": \"https://jAXSoQp.lsG2wtQWZUmAQSDnxJf\",\n  \"offer_finalization_link\": \"https://vCFjLVeMaBbDL.ejpNA2mOi.cHhLrgUKh-FL1d4sCpAJsaRZj9Fc-imxQgkvkF7cqeuoqSzAM+\",\n  \"reason_for_denial\": \"string\",\n  \"preliminary_offer_id\": \"85f22f19-4e6f-e2c0-86da-693b7d9b2e88\",\n  \"agent\": {\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"email\": \"9V9Wzjw65EoMJn@sOCoVP.yy\",\n    \"phone\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e108204-be2b-4a33-b112-a3d9c0c26937",
+              "name": "The request is invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ":offer_request_id",
+                    "agent",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offer_request_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2924cd54-d4ea-4ba8-a566-d6412314dabc",
+              "name": "Missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1.0.0",
+                    "partner",
+                    "offer-request",
+                    ":offer_request_id",
+                    "agent",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offer_request_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authentication",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"phone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.homeward.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9ff89805-fd6f-45b5-bc9d-a453b8a9750a",
+    "name": "Homeward Offer Estimate Buybox Offer Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward's \"buybox,\" update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.\n\nContact Support:\n Name: Homeward API\n Email: api@homeward.com",
+      "type": "text/plain"
+    }
+  }
+}

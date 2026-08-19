@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Homeward Offer Estimate Buybox Finalization API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Finalization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finalize an offer request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.homeward.com/agents/finalize-lead/:lead_id/",
+            "params": [
+              {
+                "name": "lead_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Finalize a Homeward Offer Estimate via the link returned by createOfferRequest. Redirects the user into the Homeward application, which may require additional information. Served from the Homeward front-end host (FE_URL), not the API host."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

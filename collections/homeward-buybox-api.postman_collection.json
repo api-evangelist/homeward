@@ -1,0 +1,163 @@
+{
+  "item": [
+    {
+      "id": "8c70f625-828c-4f47-9e3b-d3ee4d38c436",
+      "name": "Buybox",
+      "description": {
+        "content": "Property eligibility checks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62211db5-feb1-4e10-879a-87ca816a8291",
+          "name": "Buybox eligibility check",
+          "request": {
+            "name": "Buybox eligibility check",
+            "description": {
+              "content": "Quick check of whether a property is likely within Homeward's buybox. Not a definitive determination. Per the docs this endpoint is separate from the rest of the API, requires no credential, and uses a different base URL / path format. Only state is required; more values improve accuracy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "buybox",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"property_address\": {\n    \"state\": \"<string>\",\n    \"street_one\": \"<string>\",\n    \"street_two\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"opinion_of_value\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"listing_status\": \"<string>\",\n  \"year_built\": \"<integer,string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a80029d4-9bd2-4616-aa3d-d640fccf173d",
+              "name": "Eligibility result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buybox",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"property_address\": {\n    \"state\": \"<string>\",\n    \"street_one\": \"<string>\",\n    \"street_two\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"opinion_of_value\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"listing_status\": \"<string>\",\n  \"year_built\": \"<integer,string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_eligible\": false,\n  \"reason_for_denial\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "193c4d87-e31b-4b3e-8c63-b4df62906571",
+              "name": "Unprocessable request (validation failed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "buybox",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"property_address\": {\n    \"state\": \"<string>\",\n    \"street_one\": \"<string>\",\n    \"street_two\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"opinion_of_value\": \"<integer>\",\n  \"lot_size_acres\": \"<integer>\",\n  \"property_type\": \"<string>\",\n  \"listing_status\": \"<string>\",\n  \"year_built\": \"<integer,string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.homeward.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "23e77c1e-875e-4d32-acfc-369e5e248a0d",
+    "name": "Homeward Offer Estimate Buybox API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward's \"buybox,\" update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.\n\nContact Support:\n Name: Homeward API\n Email: api@homeward.com",
+      "type": "text/plain"
+    }
+  }
+}

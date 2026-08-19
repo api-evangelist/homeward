@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Homeward Offer Estimate Buybox API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Buybox",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Buybox eligibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.homeward.com/buybox/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Quick check of whether a property is likely within Homeward's buybox. Not a definitive determination. Per the docs this endpoint is separate from the rest of the API, requires no credential, and uses a different base URL / path format. Only state is required; more values improve accuracy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
