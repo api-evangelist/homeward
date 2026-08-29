@@ -1,0 +1,28 @@
+slug: homeward
+provider: Homeward
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Real Estate
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Offer Requests
+  spec_file: homeward-offer-requests-api-openapi.yml
+  capability_id: BC-4930
+  capability_id_l1: BC-4930
+  capability_name: Real Estate Acquisition & Disposition Management
+  confidence: 0.7
+  evidence: 'createOfferRequest "Create an offer request"; getOfferEstimate "Offer Estimate Information";
+    schemas OfferRequest, OfferEstimate, OfferBreakdown; description: "an offer amount, an opinion-of-value
+    range"'
+  reason: Partners submit seller leads and receive a cash-offer amount and opinion-of-value range for
+    the property — origination and pricing of property purchases by a principal buyer, i.e. real estate
+    acquisition transaction work. Left at L1 because the surface blends lead intake (screening) with offer
+    pricing (underwriting).

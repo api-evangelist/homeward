@@ -108,6 +108,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/homeward-capability-edges.yml
+  name: Homeward Business Capability Map
 - type: Overlay
   url: overlays/homeward-offer-estimate-overlay.yaml
 - type: Website
