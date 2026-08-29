@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Homeward Offer Estimate Buybox Offer Requests API
   version: 1.0.0
@@ -113,101 +113,6 @@ paths:
           description: Missing or invalid authentication token
 components:
   schemas:
-    EstimateAddress:
-      type: object
-      properties:
-        street:
-          type: string
-        unit:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-    OfferBreakdown:
-      type: object
-      properties:
-        opinion_of_value:
-          type: integer
-        opinion_of_value_min:
-          type: integer
-        opinion_of_value_max:
-          type: integer
-        address:
-          $ref: '#/components/schemas/EstimateAddress'
-        milestone_one:
-          type: integer
-        milestone_two:
-          type: integer
-        milestone_three:
-          type: integer
-        milestone_four:
-          type: integer
-        milestone_five:
-          type: integer
-        net_offer_price:
-          type: integer
-        net_offer_price_min:
-          type: integer
-        net_offer_price_max:
-          type: integer
-        homeward_partial_program_fee:
-          type: integer
-        homeward_program_fee_adjustment:
-          type: integer
-        incremental_sale_proceeds:
-          type: integer
-        listing_cost_adjustment:
-          type: integer
-        listing_cost_credit:
-          type: integer
-        net_proceeds_from_homeward_purchase:
-          type: integer
-        net_proceeds_from_homeward_sale:
-          type: integer
-        offer_price_percentage:
-          type: integer
-        program_fee:
-          type: number
-        program_fee_base:
-          type: integer
-        sale_price_estimate:
-          type: integer
-        seller_expenses:
-          type: integer
-        seller_upside_percentage:
-          type: integer
-        standard_closing_costs:
-          type: integer
-        total_program_proceeds:
-          type: integer
-        total_program_proceeds_min:
-          type: integer
-        total_program_proceeds_max:
-          type: integer
-        total_commission_percentage:
-          type: string
-        id:
-          type: string
-        lead_id:
-          type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        status:
-          type: integer
-        data:
-          type: string
-          description: Human-readable error detail
-    OfferEstimateWithAgent:
-      allOf:
-      - $ref: '#/components/schemas/OfferEstimate'
-      - type: object
-        properties:
-          agent:
-            $ref: '#/components/schemas/Agent'
     OfferRequest:
       type: object
       required:
@@ -387,6 +292,101 @@ components:
           - string
           - 'null'
           format: uuid
+    ErrorEnvelope:
+      type: object
+      properties:
+        status:
+          type: integer
+        data:
+          type: string
+          description: Human-readable error detail
+    OfferBreakdown:
+      type: object
+      properties:
+        opinion_of_value:
+          type: integer
+        opinion_of_value_min:
+          type: integer
+        opinion_of_value_max:
+          type: integer
+        address:
+          $ref: '#/components/schemas/EstimateAddress'
+        milestone_one:
+          type: integer
+        milestone_two:
+          type: integer
+        milestone_three:
+          type: integer
+        milestone_four:
+          type: integer
+        milestone_five:
+          type: integer
+        net_offer_price:
+          type: integer
+        net_offer_price_min:
+          type: integer
+        net_offer_price_max:
+          type: integer
+        homeward_partial_program_fee:
+          type: integer
+        homeward_program_fee_adjustment:
+          type: integer
+        incremental_sale_proceeds:
+          type: integer
+        listing_cost_adjustment:
+          type: integer
+        listing_cost_credit:
+          type: integer
+        net_proceeds_from_homeward_purchase:
+          type: integer
+        net_proceeds_from_homeward_sale:
+          type: integer
+        offer_price_percentage:
+          type: integer
+        program_fee:
+          type: number
+        program_fee_base:
+          type: integer
+        sale_price_estimate:
+          type: integer
+        seller_expenses:
+          type: integer
+        seller_upside_percentage:
+          type: integer
+        standard_closing_costs:
+          type: integer
+        total_program_proceeds:
+          type: integer
+        total_program_proceeds_min:
+          type: integer
+        total_program_proceeds_max:
+          type: integer
+        total_commission_percentage:
+          type: string
+        id:
+          type: string
+        lead_id:
+          type: string
+    EstimateAddress:
+      type: object
+      properties:
+        street:
+          type: string
+        unit:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+    OfferEstimateWithAgent:
+      allOf:
+      - $ref: '#/components/schemas/OfferEstimate'
+      - type: object
+        properties:
+          agent:
+            $ref: '#/components/schemas/Agent'
   securitySchemes:
     tokenAuth:
       type: apiKey
