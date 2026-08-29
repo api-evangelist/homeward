@@ -4,87 +4,90 @@ info:
   version: 1.0.0
   summary: Screen a property, request a Homeward Offer Estimate, and fetch the full offer breakdown.
 sourceDescriptions:
-  - name: homeward
-    url: ../openapi/homeward-offer-estimate-openapi.yml
-    type: openapi
+- name: buyboxApi
+  url: ../openapi/homeward-buybox-api-openapi.yml
+  type: openapi
+- name: offerRequestsApi
+  url: ../openapi/homeward-offer-requests-api-openapi.yml
+  type: openapi
 workflows:
-  - workflowId: requestCashOffer
-    summary: Check buybox eligibility, create an offer request, then retrieve the offer breakdown.
-    description: >-
-      Runs the happy path for a Homeward cash-offer digital partner. Optionally
-      screens the property against the buybox (no credential), then submits the
-      seller lead and reads back the full offer breakdown.
-    inputs:
-      type: object
-      required: [token, partner_offer_request_id, street_one, city, state, postal_code, customer_first_name, customer_last_name, customer_email]
-      properties:
-        token: { type: string, description: Homeward Authentication header token }
-        partner_offer_request_id: { type: string }
-        street_one: { type: string }
-        city: { type: string }
-        state: { type: string }
-        postal_code: { type: string }
-        customer_first_name: { type: string }
-        customer_last_name: { type: string }
-        customer_email: { type: string }
-    steps:
-      - stepId: checkEligibility
-        description: Quick, credential-free buybox screen.
-        operationId: checkBuyboxEligibility
-        requestBody:
-          contentType: application/json
-          payload:
-            property_address:
-              street_one: $inputs.street_one
-              city: $inputs.city
-              state: $inputs.state
-              postal_code: $inputs.postal_code
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          is_eligible: $response.body#/is_eligible
-      - stepId: createOffer
-        description: Submit the seller lead and receive the Homeward Offer Estimate.
-        operationId: createOfferRequest
-        parameters:
-          - name: Authentication
-            in: header
-            value: $inputs.token
-        requestBody:
-          contentType: application/json
-          payload:
-            partner_offer_request_id: $inputs.partner_offer_request_id
-            street_one: $inputs.street_one
-            city: $inputs.city
-            state: $inputs.state
-            postal_code: $inputs.postal_code
-            customer_first_name: $inputs.customer_first_name
-            customer_last_name: $inputs.customer_last_name
-            customer_email: $inputs.customer_email
-        successCriteria:
-          - condition: $statusCode == 201
-        outputs:
-          preliminary_offer_id: $response.body#/preliminary_offer_id
-          offer_amount: $response.body#/offer_amount
-          offer_finalization_link: $response.body#/offer_finalization_link
-      - stepId: getBreakdown
-        description: Retrieve the full offer breakdown for display.
-        operationId: getOfferEstimate
-        parameters:
-          - name: Authentication
-            in: header
-            value: $inputs.token
-          - name: preliminary_offer_id
-            in: path
-            value: $steps.createOffer.outputs.preliminary_offer_id
-          - name: fmt
-            in: query
-            value: json
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          net_offer_price: $response.body#/net_offer_price
+- workflowId: requestCashOffer
+  summary: Check buybox eligibility, create an offer request, then retrieve the offer breakdown.
+  description: >-
+    Runs the happy path for a Homeward cash-offer digital partner. Optionally
+    screens the property against the buybox (no credential), then submits the
+    seller lead and reads back the full offer breakdown.
+  inputs:
+    type: object
+    required: [token, partner_offer_request_id, street_one, city, state, postal_code, customer_first_name, customer_last_name, customer_email]
+    properties:
+      token: {type: string, description: Homeward Authentication header token}
+      partner_offer_request_id: {type: string}
+      street_one: {type: string}
+      city: {type: string}
+      state: {type: string}
+      postal_code: {type: string}
+      customer_first_name: {type: string}
+      customer_last_name: {type: string}
+      customer_email: {type: string}
+  steps:
+  - stepId: checkEligibility
+    description: Quick, credential-free buybox screen.
+    operationId: checkBuyboxEligibility
+    requestBody:
+      contentType: application/json
+      payload:
+        property_address:
+          street_one: $inputs.street_one
+          city: $inputs.city
+          state: $inputs.state
+          postal_code: $inputs.postal_code
+    successCriteria:
+    - condition: $statusCode == 200
     outputs:
-      offer_amount: $steps.createOffer.outputs.offer_amount
-      finalization_link: $steps.createOffer.outputs.offer_finalization_link
-      net_offer_price: $steps.getBreakdown.outputs.net_offer_price
+      is_eligible: $response.body#/is_eligible
+  - stepId: createOffer
+    description: Submit the seller lead and receive the Homeward Offer Estimate.
+    operationId: createOfferRequest
+    parameters:
+    - name: Authentication
+      in: header
+      value: $inputs.token
+    requestBody:
+      contentType: application/json
+      payload:
+        partner_offer_request_id: $inputs.partner_offer_request_id
+        street_one: $inputs.street_one
+        city: $inputs.city
+        state: $inputs.state
+        postal_code: $inputs.postal_code
+        customer_first_name: $inputs.customer_first_name
+        customer_last_name: $inputs.customer_last_name
+        customer_email: $inputs.customer_email
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      preliminary_offer_id: $response.body#/preliminary_offer_id
+      offer_amount: $response.body#/offer_amount
+      offer_finalization_link: $response.body#/offer_finalization_link
+  - stepId: getBreakdown
+    description: Retrieve the full offer breakdown for display.
+    operationId: getOfferEstimate
+    parameters:
+    - name: Authentication
+      in: header
+      value: $inputs.token
+    - name: preliminary_offer_id
+      in: path
+      value: $steps.createOffer.outputs.preliminary_offer_id
+    - name: fmt
+      in: query
+      value: json
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      net_offer_price: $response.body#/net_offer_price
+  outputs:
+    offer_amount: $steps.createOffer.outputs.offer_amount
+    finalization_link: $steps.createOffer.outputs.offer_finalization_link
+    net_offer_price: $steps.getBreakdown.outputs.net_offer_price

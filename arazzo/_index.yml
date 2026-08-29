@@ -1,5 +1,5 @@
-generated: '2026-07-19'
-method: derived
+x-generated: '2026-07-19'
+x-method: derived
 workflows:
   - file: homeward-cash-offer.yml
     workflowId: requestCashOffer
