@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Homeward Offer Estimate Buybox Finalization API
+  title: Homeward Offer Estimate Finalization API
   version: 1.0.0
-  description: 'The Homeward Offer Estimate API is for Homeward cash-offer digital partners. A partner posts a seller lead (property + customer + agent details) and Homeward responds with a Homeward Offer Estimate — an offer amount, an opinion-of-value range, a link to the Offer Estimate PDF, and a finalization link. Additional endpoints return the full offer breakdown, check whether a property is within Homeward''s "buybox," update the agent on a request, and finalize a lead. Access is by invitation: contact api@homeward.com for testing and production tokens.'
+  description: The Homeward Offer Estimate API is for Homeward cash-offer digital partners.
   contact:
     name: Homeward API
     email: api@homeward.com

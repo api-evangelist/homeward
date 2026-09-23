@@ -1,9 +1,7 @@
 {
   "provider": "homeward",
   "sources": [
-    "homeward-buybox-api-openapi.yml",
-    "homeward-finalization-api-openapi.yml",
-    "homeward-offer-requests-api-openapi.yml"
+    "_ae-authored/homeward-offer-estimate-openapi.yml"
   ],
   "outputs": [
     "homeward-buybox-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "homeward-buybox-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "homeward-finalization-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "homeward-offer-requests-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "homeward-offer-estimate-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "homeward-buybox-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "homeward-finalization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "homeward-offer-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
