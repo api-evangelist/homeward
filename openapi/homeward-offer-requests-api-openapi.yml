@@ -113,13 +113,6 @@ paths:
           description: Missing or invalid authentication token
 components:
   schemas:
-    OfferEstimateWithAgent:
-      allOf:
-      - $ref: '#/components/schemas/OfferEstimate'
-      - type: object
-        properties:
-          agent:
-            $ref: '#/components/schemas/Agent'
     OfferRequest:
       type: object
       required:
@@ -242,6 +235,19 @@ components:
           type: integer
         lot_size_acres:
           type: integer
+    Agent:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+          description: 10-digit phone with area code; accepts 999-888-7777, (999) 888-7777, 999.888.7777, 9998887777
     OfferEstimate:
       type: object
       properties:
@@ -286,19 +292,34 @@ components:
           - string
           - 'null'
           format: uuid
-    Agent:
+    ErrorEnvelope:
       type: object
       properties:
-        first_name:
+        status:
+          type: integer
+        data:
           type: string
-        last_name:
+          description: Human-readable error detail
+    OfferEstimateWithAgent:
+      allOf:
+      - $ref: '#/components/schemas/OfferEstimate'
+      - type: object
+        properties:
+          agent:
+            $ref: '#/components/schemas/Agent'
+    EstimateAddress:
+      type: object
+      properties:
+        street:
           type: string
-        email:
+        unit:
           type: string
-          format: email
-        phone:
+        city:
           type: string
-          description: 10-digit phone with area code; accepts 999-888-7777, (999) 888-7777, 999.888.7777, 9998887777
+        state:
+          type: string
+        zip:
+          type: string
     OfferBreakdown:
       type: object
       properties:
@@ -365,27 +386,6 @@ components:
         id:
           type: string
         lead_id:
-          type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        status:
-          type: integer
-        data:
-          type: string
-          description: Human-readable error detail
-    EstimateAddress:
-      type: object
-      properties:
-        street:
-          type: string
-        unit:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
           type: string
   securitySchemes:
     tokenAuth:
