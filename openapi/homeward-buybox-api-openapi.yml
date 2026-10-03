@@ -42,18 +42,6 @@ paths:
           description: Unprocessable request (validation failed)
 components:
   schemas:
-    BuyboxResult:
-      type: object
-      required:
-      - is_eligible
-      properties:
-        is_eligible:
-          type: boolean
-        reason_for_denial:
-          type:
-          - string
-          - 'null'
-          description: 'One of: Property lot size is outside of buybox; Year built is outside of buybox; Listing status is outside of buybox; Estimated sale price outside of buybox; Property type is outside of buybox; Property address outside of buybox'
     BuyboxRequest:
       type: object
       required:
@@ -103,6 +91,18 @@ components:
           type:
           - integer
           - string
+    BuyboxResult:
+      type: object
+      required:
+      - is_eligible
+      properties:
+        is_eligible:
+          type: boolean
+        reason_for_denial:
+          type:
+          - string
+          - 'null'
+          description: 'One of: Property lot size is outside of buybox; Year built is outside of buybox; Listing status is outside of buybox; Estimated sale price outside of buybox; Property type is outside of buybox; Property address outside of buybox'
   securitySchemes:
     tokenAuth:
       type: apiKey
