@@ -113,13 +113,6 @@ paths:
           description: Missing or invalid authentication token
 components:
   schemas:
-    OfferEstimateWithAgent:
-      allOf:
-      - $ref: '#/components/schemas/OfferEstimate'
-      - type: object
-        properties:
-          agent:
-            $ref: '#/components/schemas/Agent'
     OfferBreakdown:
       type: object
       properties:
@@ -187,14 +180,50 @@ components:
           type: string
         lead_id:
           type: string
-    ErrorEnvelope:
+    OfferEstimate:
       type: object
       properties:
-        status:
-          type: integer
-        data:
+        partner_offer_request_id:
           type: string
-          description: Human-readable error detail
+        homeward_offer_id:
+          type: string
+          format: uuid
+        offer_amount:
+          type:
+          - integer
+          - 'null'
+        opinion_of_value_min:
+          type:
+          - integer
+          - 'null'
+        opinion_of_value_max:
+          type:
+          - integer
+          - 'null'
+        expiration_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        preliminary_offer_pdf:
+          type:
+          - string
+          - 'null'
+          format: uri
+        offer_finalization_link:
+          type:
+          - string
+          - 'null'
+          format: uri
+        reason_for_denial:
+          type:
+          - string
+          - 'null'
+        preliminary_offer_id:
+          type:
+          - string
+          - 'null'
+          format: uuid
     OfferRequest:
       type: object
       required:
@@ -317,63 +346,6 @@ components:
           type: integer
         lot_size_acres:
           type: integer
-    EstimateAddress:
-      type: object
-      properties:
-        street:
-          type: string
-        unit:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-    OfferEstimate:
-      type: object
-      properties:
-        partner_offer_request_id:
-          type: string
-        homeward_offer_id:
-          type: string
-          format: uuid
-        offer_amount:
-          type:
-          - integer
-          - 'null'
-        opinion_of_value_min:
-          type:
-          - integer
-          - 'null'
-        opinion_of_value_max:
-          type:
-          - integer
-          - 'null'
-        expiration_date:
-          type:
-          - string
-          - 'null'
-          format: date
-        preliminary_offer_pdf:
-          type:
-          - string
-          - 'null'
-          format: uri
-        offer_finalization_link:
-          type:
-          - string
-          - 'null'
-          format: uri
-        reason_for_denial:
-          type:
-          - string
-          - 'null'
-        preliminary_offer_id:
-          type:
-          - string
-          - 'null'
-          format: uuid
     Agent:
       type: object
       properties:
@@ -387,6 +359,34 @@ components:
         phone:
           type: string
           description: 10-digit phone with area code; accepts 999-888-7777, (999) 888-7777, 999.888.7777, 9998887777
+    OfferEstimateWithAgent:
+      allOf:
+      - $ref: '#/components/schemas/OfferEstimate'
+      - type: object
+        properties:
+          agent:
+            $ref: '#/components/schemas/Agent'
+    EstimateAddress:
+      type: object
+      properties:
+        street:
+          type: string
+        unit:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        status:
+          type: integer
+        data:
+          type: string
+          description: Human-readable error detail
   securitySchemes:
     tokenAuth:
       type: apiKey
