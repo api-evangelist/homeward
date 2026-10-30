@@ -64,6 +64,124 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Homeward is a company surfaced as a portfolio company of norwest-venture-partners and added to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead awaiting the enrichment pipeline.
+Homeward is a modern home-finance company founded in 2018 and headquartered in Austin, Texas, that partners with real estate agents to turn any homebuyer into a cash buyer. Its cash-offer products let buyers make competitive, contingency-free offers and buy a new home before selling their current one, bundled with affiliates Homeward Mortgage and Homeward Title. For its cash-offer digital partners, Homeward exposes the Offer Estimate API: partners submit seller leads (property, customer, and agent details) and receive a Homeward Offer Estimate — an offer amount, an opinion-of-value range, an Offer Estimate PDF, and a finalization link — plus a public buybox eligibility check. Homeward is backed by Norwest Venture Partners, Blackstone, Breyer Capital, Live Oak Venture Partners, Javelin Venture Partners, Adams Street, and others.
 
-Backed by: norwest-venture-partners — https://homeward.com
+**Areas:** Company · Real Estate · Home Finance · Mortgage · PropTech · Cash Offer · Title · Lending
+
+## Homeward on APIs.io
+
+Everything profiled for Homeward is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/homeward/](https://apis.io/providers/homeward/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Homeward Buybox API](https://apis.io/apis/homeward/homeward-buybox-api/) — Property eligibility checks
+- [Homeward Finalization API](https://apis.io/apis/homeward/homeward-finalization-api/) — Finalize a lead in the Homeward application
+- [Homeward Offer Requests API](https://apis.io/apis/homeward/homeward-offer-requests-api/) — Create, read, and update partner offer requests
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (1)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Homeward cash offer — buybox to finalized estimate](https://apis.io/arazzos/homeward/homeward-cash-offer/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [homeward-offer-estimate](https://apis.io/servers/homeward/homeward-offer-estimate/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Homeward Agentic Access](https://apis.io/agentic-access/homeward/homeward-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Homeward Offer Estimate Buybox API](https://apis.io/collections/homeward/open-homeward-buybox-api/)
+- [Homeward Offer Estimate Buybox Finalization API](https://apis.io/collections/homeward/open-homeward-finalization-api/)
+- [Homeward Offer Estimate Buybox Offer Requests API](https://apis.io/collections/homeward/open-homeward-offer-requests-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Homeward Offer Estimate Overlay](https://apis.io/overlays/homeward/homeward-offer-estimate-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Homeward Authentication](https://apis.io/security/homeward/homeward-authentication/)
+- [Homeward Domain Security](https://apis.io/security/homeward/homeward-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.homeward.com)
+- [Documentation](https://api-docs.homeward.com/)
+- [API reference](https://api-docs.homeward.com/)
+- [Support](https://www.homeward.com/help-centers)
+- [Blog](https://www.homeward.com/blog)
+- [Terms of service](https://www.homeward.com/legalese/terms-conditions-of-use)
+- [Privacy policy](https://www.homeward.com/legalese/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 27.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 13.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 21.1 |
+
+**Agent readiness 18.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/homeward/](https://apis.io/providers/homeward/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Homeward: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/homeward/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
